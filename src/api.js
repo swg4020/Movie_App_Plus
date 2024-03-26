@@ -14,4 +14,5 @@ const options = {
   },
 };
 
-
+export const nowPlaying = () =>
+  fatch(url("movie/now_playing"), options).then((res) => res.json());

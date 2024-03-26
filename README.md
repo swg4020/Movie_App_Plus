@@ -1,18 +1,6 @@
 ## 영화 앱 계획서 04-08끝
 
-03-25
--[] 계획서 작성
--[] 레퍼런스 찾기
--[] 필요자료 찾기
--[] 깃허브 등록
-
-03-26
-
-
-03-27
-
-
-03-28
-
-
-03-29
+- [x] "react-router-dom": "^6.22.3", / npm i react-router-dom
+- [x] "styled-reset": "^4.5.2", / npm i styled-reset
+- [x] "styled-components": "^6.1.8", / npm i styled-components
+- []
