@@ -23,6 +23,24 @@ const Title = styled.div`
     width: 100%;
     line-height: 26px;
   }
+  @media screen and (max-width: 640px) {
+    left: 50px;
+    h3 {
+      font-size: 60px;
+    }
+    p {
+      max-width: 400px;
+    }
+  }
+  @media screen and (max-width: 450px) {
+    left: 20px;
+    h3 {
+      font-size: 30px;
+    }
+    p {
+      max-width: 300px;
+    }
+  }
 `;
 const BackBg = styled.div`
   width: 100%;

@@ -5,6 +5,7 @@ import { IMG_SIZE } from "../../constant/url";
 import { searchMovie } from "../../api";
 import styled from "styled-components";
 import { Loading } from "../../components/Loading";
+import { PageTitle } from "../../components/PageTitle";
 
 const Container = styled.section`
   padding: 150px;
@@ -82,6 +83,7 @@ export const Search = () => {
 
   return (
     <Container>
+      <PageTitle title={"Search"}/>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <input
           {...register("search", {

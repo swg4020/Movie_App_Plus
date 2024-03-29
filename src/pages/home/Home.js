@@ -3,6 +3,7 @@ import { nowPlaying } from "../../api";
 import { MainBanner } from "./MainBanner";
 import { Movies } from "./Movies";
 import { Loading } from "../../components/Loading";
+import { PageTitle } from "../../components/PageTitle";
 
 export const Home = () => {
   const [nowData, setNowData] = useState();
@@ -30,6 +31,7 @@ export const Home = () => {
         <>
           {nowData && (
             <>
+              <PageTitle title={"Home"} />
               <MainBanner imgUrl={nowData} />
 
               <Movies movieData={nowData} titleText={"인기영화"} />
