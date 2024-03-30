@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { routes } from "../routes";
 import styled from "styled-components";
 import { useEffect, useRef } from "react";
-import { GlobalPadding } from "./GlobalStyled";
+import { GlobalPadding, colors } from "./GlobalStyled";
 
 const SHeader = styled.header`
   padding: 20px 50px;
@@ -25,14 +25,27 @@ const SHeader = styled.header`
 const Logo = styled.div`
   font-size: 28px;
   font-weight: 700;
+  a{
+    color: ${colors.point};
+  }
 `;
 const Nav = styled.ul`
   display: flex;
   align-items: center;
   font-size: 18px;
   font-weight: 700;
+
   li {
     margin-left: 100px;
+    a{
+      color: ${colors.point};
+    }
+  }
+  @media screen and (max-width: 450px) {
+    li {
+      margin-left: 30px;
+      font-size: 16px;
+    }
   }
 `;
 

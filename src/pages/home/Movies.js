@@ -6,12 +6,12 @@ import { Link } from "react-router-dom";
 import { GlobalPadding } from "../../components/GlobalStyled";
 
 const Section = styled.section`
-  padding: 100px 0 50px 50px;
+  padding: 50px 0 0 50px;
   @media screen and (max-width: 640px) {
-    padding: ${GlobalPadding.padding_640} 0 50px ${GlobalPadding.padding_640};
+    padding: ${GlobalPadding.padding_640} 0 0 ${GlobalPadding.padding_640};
   }
   @media screen and (max-width: 450px) {
-    padding: ${GlobalPadding.padding_450} 0 50px ${GlobalPadding.padding_450};
+    padding: ${GlobalPadding.padding_450} 0 0 ${GlobalPadding.padding_450};
   }
 `;
 
@@ -32,6 +32,7 @@ const Bg = styled.div`
   height: 370px;
   background: url(${IMG_SIZE.size_500}${(props) => props.$bgUrl}) no-repeat
     center / cover;
+  border-radius: 15px;
   @media screen and (max-width: 640px) {
     height: 280px;
   }

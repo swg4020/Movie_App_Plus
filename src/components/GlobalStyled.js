@@ -1,6 +1,10 @@
 import { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
 
+export const colors = {
+  point: "#e50914",
+};
+
 export const GlobalPadding = {
   padding_640: "50px",
   padding_450: "20px",

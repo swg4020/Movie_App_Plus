@@ -17,6 +17,21 @@ const options = {
 export const nowPlaying = () =>
   fatch(url("movie/now_playing"), options).then((res) => res.json());
 
+export const poPular = () =>
+  fatch(url("movie/popular"), options).then((res) => res.json());
+
+export const topRated = () =>
+  fatch(url("movie/top_rated"), options).then((res) => res.json());
+
+export const upComing = () =>
+  fatch(url("movie/upcoming"), options).then((res) => res.json());
+
+export const videosMovie = (movieId) => {
+  const videosUrl = baseUrl + `movie/${movieId}/videos&language=ko-kr`;
+  return fatch(videosUrl, options).then((res) => res.json());
+};
+//비디오 가져오기
+
 export const searchMovie = (keyword) => {
   const searchUrl = baseUrl + `search/movie?query=${keyword}&language=ko-kr`;
   return fatch(searchUrl, options).then((res) => res.json());

@@ -1,5 +1,8 @@
 import styled from "styled-components";
 import { IMG_SIZE } from "../../constant/url";
+import { Link } from "react-router-dom";
+import { colors } from "../../components/GlobalStyled";
+
 
 const Banner = styled.section`
   height: 80vh;
@@ -9,7 +12,7 @@ const Banner = styled.section`
 `;
 const Title = styled.div`
   position: absolute;
-  bottom: 200px;
+  bottom: 100px;
   left: 50px;
   h3 {
     font-size: 80px;
@@ -22,6 +25,14 @@ const Title = styled.div`
     max-width: 550px;
     width: 100%;
     line-height: 26px;
+  }
+  a {
+    p {
+      width: 80px;
+      border-radius: 3px;
+      text-align: center;
+      background-color: ${colors.point};
+    }
   }
   @media screen and (max-width: 640px) {
     left: 50px;
@@ -61,6 +72,9 @@ export const MainBanner = ({ imgUrl }) => {
       <Title>
         <h3>{data.title}</h3>
         <p>{data.overview.slice(0, 100) + "..."}</p>
+        <Link to={`/detail/${data.id}`}>
+          <p>더 보기..</p>
+        </Link>
       </Title>
     </Banner>
   );
