@@ -26,8 +26,8 @@ export const topRated = () =>
 export const upComing = () =>
   fatch(url("movie/upcoming"), options).then((res) => res.json());
 
-export const videosMovie = (movieId) => {
-  const videosUrl = baseUrl + `movie/${movieId}/videos&language=ko-kr`;
+export const videosMovie = (id) => {
+  const videosUrl = baseUrl + `movie/${id}/videos?language=ko-kr`;
   return fatch(videosUrl, options).then((res) => res.json());
 };
 //비디오 가져오기

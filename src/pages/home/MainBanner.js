@@ -28,10 +28,12 @@ const Title = styled.div`
   }
   a {
     p {
-      width: 80px;
+      width: 100px;
+      height: 25px;
       border-radius: 3px;
       text-align: center;
       background-color: ${colors.point};
+      line-height: 20px;
     }
   }
   @media screen and (max-width: 640px) {
@@ -64,8 +66,8 @@ const BackBg = styled.div`
   );
 `;
 
-export const MainBanner = ({ imgUrl }) => {
-  const data = imgUrl[0];
+export const MainBanner = ({ imgUrl, numData }) => {
+  const data = imgUrl[numData];
   return (
     <Banner $bgUrl={data?.backdrop_path}>
       <BackBg />
@@ -73,7 +75,7 @@ export const MainBanner = ({ imgUrl }) => {
         <h3>{data.title}</h3>
         <p>{data.overview.slice(0, 100) + "..."}</p>
         <Link to={`/detail/${data.id}`}>
-          <p>더 보기..</p>
+          <p>see more...</p>
         </Link>
       </Title>
     </Banner>

@@ -11,6 +11,7 @@ export const Home = () => {
   const [popData, setPopData] = useState();
   const [topData, setTopData] = useState();
   const [upData, setUpData] = useState();
+  const [number, setNumber] = useState(0);
   const [isLoading, setIsLoding] = useState(true);
 
   useEffect(() => {
@@ -20,6 +21,7 @@ export const Home = () => {
         const { results: nowPopular } = await poPular();
         const { results: nowTopRated } = await topRated();
         const { results: nowUpComing } = await upComing();
+        setNumber(Math.floor(Math.random()* 20));
         setNowData(nowResult);
         setPopData(nowPopular);
         setTopData(nowTopRated);
@@ -31,8 +33,7 @@ export const Home = () => {
       }
     })();
   }, []);
-  console.log(nowData);
-
+  
   return (
     <>
       {isLoading ? (
@@ -42,8 +43,8 @@ export const Home = () => {
           {nowData && (
             <>
               <PageTitle title={"Home"} />
-              <MainBanner imgUrl={nowData} />
-
+              <MainBanner imgUrl={nowData} numData={number} />
+              
               <Movies movieData={nowData} titleText={"최신 영화"} />
               <Movies movieData={popData} titleText={"인기영화"} />
               <Movies movieData={topData} titleText={"평점이 높은 영화"} />
