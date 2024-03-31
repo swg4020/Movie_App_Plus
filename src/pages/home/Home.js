@@ -33,7 +33,7 @@ export const Home = () => {
       }
     })();
   }, []);
-  
+  console.log(nowData);
   return (
     <>
       {isLoading ? (

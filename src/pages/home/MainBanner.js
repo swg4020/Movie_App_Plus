@@ -2,17 +2,18 @@ import styled from "styled-components";
 import { IMG_SIZE } from "../../constant/url";
 import { Link } from "react-router-dom";
 import { colors } from "../../components/GlobalStyled";
+import { MovieMini } from "./MovieMini";
 
 
 const Banner = styled.section`
-  height: 80vh;
+  height: 100vh;
   background: url(${IMG_SIZE.origin}${(props) => props.$bgUrl}) no-repeat center /
     cover;
   position: relative;
 `;
 const Title = styled.div`
   position: absolute;
-  bottom: 100px;
+  bottom: 200px;
   left: 50px;
   h3 {
     font-size: 80px;
@@ -78,6 +79,7 @@ export const MainBanner = ({ imgUrl, numData }) => {
           <p>see more...</p>
         </Link>
       </Title>
+      <MovieMini movieData={imgUrl} titleText={"추천"}/>
     </Banner>
   );
 };
