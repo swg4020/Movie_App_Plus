@@ -11,6 +11,8 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 9999;
+  background-color: #1d1d1d;
 `;
 
 export const Loading = () => {

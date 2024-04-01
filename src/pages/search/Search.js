@@ -11,6 +11,7 @@ import { CiSearch } from "react-icons/ci";
 
 const Container = styled.section`
   padding: 150px;
+  height: 100vh;
   @media screen and (max-width: 640px) {
     padding: 100px 50px 50px ${GlobalPadding.padding_640};
   }
@@ -72,6 +73,12 @@ const Bg = styled.div`
     height: 100%;
     object-fit: cover;
     border-radius: 15px;
+  }
+  @media screen and (max-width: 640px) {
+    height: 270px;
+  }
+  @media screen and (max-width: 450px) {
+    height: 240px;
   }
 `;
 

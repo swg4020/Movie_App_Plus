@@ -45,8 +45,7 @@ const Numb = styled.div`
   text-align: end;
   font-weight: 700;
   bottom: 0;
-  color: black;
-  text-shadow: 0px 1px 10px crimson;
+  color: white;
 `;
 const Bg = styled.div`
   width: 80%;
@@ -82,6 +81,10 @@ export const MovieMini = ({ movieData, titleText }) => {
     },
   };
   let num = 0;
+  if (movieData.id > 10) {
+    const data = movieData;
+    console.log(data);
+  }
   return (
     <Section>
       <Title>{titleText}</Title>

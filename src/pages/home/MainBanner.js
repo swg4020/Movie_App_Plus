@@ -4,12 +4,17 @@ import { Link } from "react-router-dom";
 import { colors } from "../../components/GlobalStyled";
 import { MovieMini } from "./MovieMini";
 
-
 const Banner = styled.section`
   height: 100vh;
   background: url(${IMG_SIZE.origin}${(props) => props.$bgUrl}) no-repeat center /
     cover;
   position: relative;
+  @media screen and (max-width: 640px) {
+    height: 80vh;
+  }
+  @media screen and (max-width: 450px) {
+    height: 80vh;
+  }
 `;
 const Title = styled.div`
   position: absolute;
@@ -17,7 +22,7 @@ const Title = styled.div`
   left: 50px;
   h3 {
     font-size: 80px;
-    font-family: 700;
+    font-weight: 700;
   }
   p {
     font-size: 18px;
@@ -26,16 +31,17 @@ const Title = styled.div`
     max-width: 550px;
     width: 100%;
     line-height: 26px;
+    margin-bottom: 10px;
   }
   a {
-    p {
-      width: 100px;
-      height: 25px;
-      border-radius: 3px;
-      text-align: center;
-      background-color: ${colors.point};
-      line-height: 20px;
-    }
+    width: 300px;
+    height: 30px;
+    border-radius: 3px;
+    text-align: center;
+    background-color: ${colors.point};
+    line-height: 40px;
+    font-size: 30px;
+    font-weight: 600;
   }
   @media screen and (max-width: 640px) {
     left: 50px;
@@ -75,11 +81,9 @@ export const MainBanner = ({ imgUrl, numData }) => {
       <Title>
         <h3>{data.title}</h3>
         <p>{data.overview.slice(0, 100) + "..."}</p>
-        <Link to={`/detail/${data.id}`}>
-          <p>see more...</p>
-        </Link>
+        <Link to={`/detail/${data.id}`}>see more</Link>
       </Title>
-      <MovieMini movieData={imgUrl} titleText={"추천"}/>
+      <MovieMini movieData={imgUrl} titleText={"추천"} />
     </Banner>
   );
 };

@@ -5,6 +5,7 @@ import { Erorr404 } from "./pages/Erorr404";
 import { Detail } from "./pages/detail/Detail";
 import { Search } from "./pages/search/Search";
 import { Header } from "./components/Header";
+import { Footer } from "./components/Footer";
 
 function Router() {
   return (
@@ -16,6 +17,7 @@ function Router() {
         <Route path={routes.search} element={<Search />} />
         <Route path="/*" element={<Erorr404 />} />
       </Routes>
+      <Footer />
     </HashRouter>
   );
 }
