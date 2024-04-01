@@ -10,7 +10,7 @@ const Banner = styled.section`
     cover;
   position: relative;
   @media screen and (max-width: 640px) {
-    height: 80vh;
+    height: 90vh;
   }
   @media screen and (max-width: 450px) {
     height: 80vh;
@@ -34,25 +34,29 @@ const Title = styled.div`
     margin-bottom: 10px;
   }
   a {
-    width: 300px;
-    height: 30px;
-    border-radius: 3px;
-    text-align: center;
-    background-color: ${colors.point};
-    line-height: 40px;
-    font-size: 30px;
-    font-weight: 600;
+    p {
+      width: 150px;
+      height: 30px;
+      border-radius: 3px;
+      text-align: center;
+      background-color: ${colors.point};
+      line-height: 30px;
+      font-size: 25px;
+      font-weight: 600;
+    }
   }
   @media screen and (max-width: 640px) {
+    bottom: 160px;
     left: 50px;
     h3 {
-      font-size: 60px;
+      font-size: 50px;
     }
     p {
       max-width: 400px;
     }
   }
   @media screen and (max-width: 450px) {
+    bottom: 140px;
     left: 20px;
     h3 {
       font-size: 30px;
@@ -81,7 +85,9 @@ export const MainBanner = ({ imgUrl, numData }) => {
       <Title>
         <h3>{data.title}</h3>
         <p>{data.overview.slice(0, 100) + "..."}</p>
-        <Link to={`/detail/${data.id}`}>see more</Link>
+        <Link to={`/detail/${data.id}`}>
+          <p>더 보기</p>
+        </Link>
       </Title>
       <MovieMini movieData={imgUrl} titleText={"추천"} />
     </Banner>

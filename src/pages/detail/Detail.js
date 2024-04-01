@@ -10,7 +10,7 @@ export const Detail = () => {
   const { id } = useParams();
   const [data, setData] = useState();
   // const [videoData, setVideoData] = useState();
-  const [isLoadig, setIsLoading] = useState();
+  const [isLoadig, setIsLoading] = useState(true);
 
   useEffect(() => {
     (async () => {

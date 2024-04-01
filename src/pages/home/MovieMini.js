@@ -41,11 +41,18 @@ const Con = styled.div`
 
 const Numb = styled.div`
   width: 20%;
-  font-size: 50px;
+  font-size: 40px;
   text-align: end;
   font-weight: 700;
   bottom: 0;
   color: white;
+  z-index: 99;
+  @media screen and (max-width: 640px) {
+    font-size: 35px;
+  }
+  @media screen and (max-width: 450px) {
+    font-size: 25px;
+  }
 `;
 const Bg = styled.div`
   width: 80%;
@@ -80,21 +87,18 @@ export const MovieMini = ({ movieData, titleText }) => {
       },
     },
   };
-  let num = 0;
-  if (movieData.id > 10) {
-    const data = movieData;
-    console.log(data);
-  }
+
+  
   return (
     <Section>
       <Title>{titleText}</Title>
 
       <Swiper {...params}>
-        {movieData.map((data) => (
+        {movieData.map((data, index) => (
           <SwiperSlide key={data.id}>
             <Link to={`/detail/${data.id}`}>
               <Con>
-                <Numb>{++num}</Numb>
+                <Numb>{index + 1}</Numb>
                 <Bg $bgUrl={data.poster_path} />
               </Con>
             </Link>
