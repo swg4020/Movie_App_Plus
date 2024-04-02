@@ -122,7 +122,7 @@ const Movieveideo = styled.div`
 const Close = styled.button``;
 
 export const MovieCon = ({ data, moviedata }) => {
-  const videodata = moviedata[0];
+  const videodata = moviedata;
   const [isNone, setIsNone] = useState("none");
   const OnvideoHanedler = () => {
     setIsNone("flex");
@@ -130,6 +130,7 @@ export const MovieCon = ({ data, moviedata }) => {
   const ClosevideoHanedler = () => {
     setIsNone("none");
   };
+
   return (
     <>
       <Container>
@@ -151,14 +152,14 @@ export const MovieCon = ({ data, moviedata }) => {
           </Genres>
           <p>{data?.overview}</p>
           <>
-            {data?.results?.length ? <Video onClick={OnvideoHanedler}>예고편 보기</Video> : ""}
+            {videodata?.length ? <Video onClick={OnvideoHanedler}>예고편 보기</Video> : ""}
           </>
         </Con>
       </Container>
       <Movieveideo $video={isNone}>
         <iframe
-          src={`https://www.youtube.com/embed/${videodata?.key}`}
-          title={`${videodata?.name}`}
+          src={`https://www.youtube.com/embed/${videodata[0]?.key}`}
+          title={`${videodata[0]?.name}`}
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           referrerPolicy="strict-origin-when-cross-origin"
           allowFullScreen

@@ -20,7 +20,7 @@ export const Detail = () => {
         setVideoData(videoData);
         setData(detailData);
         setIsLoading(false);
-        console.log(videoData);
+        console.log(detailData);
       } catch (errors) {
         console.log(errors);
       }

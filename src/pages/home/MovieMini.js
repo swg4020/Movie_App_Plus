@@ -10,7 +10,7 @@ const Section = styled.section`
   left: 0;
   z-index: 99;
   width: 100%;
-  bottom: 10px;
+  bottom: 40px;
   padding: 50px 0 0 50px;
   @media screen and (max-width: 640px) {
     padding: ${GlobalPadding.padding_640} 0 0 ${GlobalPadding.padding_640};

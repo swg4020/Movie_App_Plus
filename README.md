@@ -9,5 +9,3 @@
 - [x] "react-icons": "^5.0.1", / npm i react-icons
 - [x] "react-spinners": "^0.13.8", / npm i react-spinners
 
-
-추천 간격 수정

@@ -18,7 +18,7 @@ const Banner = styled.section`
 `;
 const Title = styled.div`
   position: absolute;
-  bottom: 200px;
+  bottom: 250px;
   left: 50px;
   h3 {
     font-size: 80px;
