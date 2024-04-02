@@ -10,6 +10,11 @@ export const GlobalPadding = {
   padding_450: "20px",
 };
 
+export const VideoSize = {
+  Vwidth: "1000px",
+  Vheight: "600px",
+};
+
 export const GlobalStyled = createGlobalStyle`
 
     ${reset}

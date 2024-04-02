@@ -1,6 +1,11 @@
 import styled from "styled-components";
 import { IMG_SIZE } from "../../constant/url";
-import { GlobalPadding } from "../../components/GlobalStyled";
+import {
+  GlobalPadding,
+  VideoSize,
+  colors,
+} from "../../components/GlobalStyled";
+import { useState } from "react";
 
 const Container = styled.div`
   padding: 150px;
@@ -86,24 +91,81 @@ const Genres = styled.ul`
   }
 `;
 
-export const MovieCon = ({ data }) => {
+const Video = styled.button`
+  all: unset;
+  background-color: ${colors.point};
+  width: 150px;
+  height: 30px;
+  border-radius: 5px;
+  margin-top: 50px;
+  text-align: center;
+  line-height: 30px;
+  font-size: 19px;
+  font-weight: 600;
+`;
+
+const Movieveideo = styled.div`
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: ${(props) => props.$video};
+  justify-content: center;
+  background-color: #1d1d1d;
+  align-items: center;
+  iframe {
+    width: ${VideoSize.Vwidth};
+    height: ${VideoSize.Vheight};
+  }
+`;
+const Close = styled.button``;
+
+export const MovieCon = ({ data, moviedata }) => {
+  const videodata = moviedata[0];
+  const [isNone, setIsNone] = useState("none");
+  const OnvideoHanedler = () => {
+    setIsNone("flex");
+  };
+  const ClosevideoHanedler = () => {
+    setIsNone("none");
+  };
   return (
-    <Container>
-      <Bg>
-        <img src={`${IMG_SIZE.origin}${data?.poster_path}`} alt={data?.title} />
-      </Bg>
-      <Con>
-        <h3>{data?.title}</h3>
-        <div className="info">{Math.ceil(data?.vote_average)}점</div>
-        <div className="info">{data?.runtime}분</div>
-        <div className="info">{data?.release_date}</div>
-        <Genres className="info">
-          {data?.genres?.map((genre) => (
-            <li key={genre.id}>{genre.name}</li>
-          ))}
-        </Genres>
-        <p>{data?.overview}</p>
-      </Con>
-    </Container>
+    <>
+      <Container>
+        <Bg>
+          <img
+            src={`${IMG_SIZE.origin}${data?.poster_path}`}
+            alt={data?.title}
+          />
+        </Bg>
+        <Con>
+          <h3>{data?.title}</h3>
+          <div className="info">{Math.ceil(data?.vote_average)}점</div>
+          <div className="info">{data?.runtime}분</div>
+          <div className="info">{data?.release_date}</div>
+          <Genres className="info">
+            {data?.genres?.map((genre) => (
+              <li key={genre.id}>{genre.name}</li>
+            ))}
+          </Genres>
+          <p>{data?.overview}</p>
+          <>
+            {data?.results?.length ? <Video onClick={OnvideoHanedler}>예고편 보기</Video> : ""}
+          </>
+        </Con>
+      </Container>
+      <Movieveideo $video={isNone}>
+        <iframe
+          src={`https://www.youtube.com/embed/${videodata?.key}`}
+          title={`${videodata?.name}`}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerPolicy="strict-origin-when-cross-origin"
+          allowFullScreen
+        ></iframe>
+        {/* 카멜로 수정  이어지는 부분 수정*/}
+        <Close onClick={ClosevideoHanedler}>X</Close>
+      </Movieveideo>
+    </>
   );
 };

@@ -10,3 +10,4 @@
 - [x] "react-spinners": "^0.13.8", / npm i react-spinners
 
 
+추천 간격 수정
