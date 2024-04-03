@@ -11,7 +11,6 @@ import { CiSearch } from "react-icons/ci";
 
 const Container = styled.section`
   padding: 150px;
-  height: 100vh;
   @media screen and (max-width: 640px) {
     padding: 100px 50px 50px ${GlobalPadding.padding_640};
   }
@@ -87,11 +86,17 @@ const Text = styled.p`
   font-size: 29px;
   padding: 50px 0 50px 20px;
   @media screen and (max-width: 640px) {
-    padding: ${GlobalPadding.padding_640} 0 50px 20px;
+    padding: ${GlobalPadding.padding_640} 0 50px 0;
   }
   @media screen and (max-width: 450px) {
-    padding: ${GlobalPadding.padding_450} 0 50px 20px;
+    padding: ${GlobalPadding.padding_450} 0 30px 0;
+    font-size: 18px;
   }
+`;
+
+const Box = styled.div`
+height: 100vh;
+display: ${props=> props.$noNe};
 `;
 
 const ErrorMessage = styled.p`
@@ -127,7 +132,7 @@ export const Search = () => {
   };
 
   const message = errors?.search?.message;
-
+  console.log(term);
   return (
     <Container>
       <PageTitle title={"Search"} />
@@ -145,7 +150,7 @@ export const Search = () => {
       {errors ? <ErrorMessage>{message}</ErrorMessage> : ""}
 
       {term ? <Text>"{keyword}"의 검색 결과</Text> : ""}
-
+      {term ? <Box $noNe={"none"}></Box> : <Box $noNe={"block"}></Box>}
       {term && (
         <ConWrap>
           {isLoadig ? (

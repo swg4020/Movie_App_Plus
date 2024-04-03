@@ -112,14 +112,28 @@ const Movieveideo = styled.div`
   left: 0;
   display: ${(props) => props.$video};
   justify-content: center;
-  background-color: #1d1d1d;
+  background-color: #1d1d1dde;
   align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
   iframe {
     width: ${VideoSize.Vwidth};
     height: ${VideoSize.Vheight};
   }
 `;
-const Close = styled.button``;
+
+const Close = styled.button`
+  all: unset;
+  margin-top: 30px;
+  font-size: 35px;
+  padding: 10px 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  &:hover{
+    background-color: gray;
+    transition: 0.5s;
+  }
+`;
 
 export const MovieCon = ({ data, moviedata }) => {
   const videodata = moviedata;
@@ -152,7 +166,11 @@ export const MovieCon = ({ data, moviedata }) => {
           </Genres>
           <p>{data?.overview}</p>
           <>
-            {videodata?.length ? <Video onClick={OnvideoHanedler}>예고편 보기</Video> : ""}
+            {videodata?.length ? (
+              <Video onClick={OnvideoHanedler}>예고편 보기</Video>
+            ) : (
+              ""
+            )}
           </>
         </Con>
       </Container>
@@ -165,7 +183,7 @@ export const MovieCon = ({ data, moviedata }) => {
           allowFullScreen
         ></iframe>
         {/* 카멜로 수정  이어지는 부분 수정*/}
-        <Close onClick={ClosevideoHanedler}>X</Close>
+        <Close onClick={ClosevideoHanedler}>✖</Close>
       </Movieveideo>
     </>
   );

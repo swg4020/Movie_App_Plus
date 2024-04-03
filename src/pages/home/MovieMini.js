@@ -33,13 +33,22 @@ const Title = styled.h3`
   }
 `;
 
-const ConWrap = styled.div`
+const ConWrap = styled.div``;
+
+const Sub = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: end;
   h3 {
-    width: 100%;
-    font-size: 18px;
+    width: 80%;
+    font-size: 15px;
     text-align: center;
-    margin-top: 10px;
+    padding: 5px;
     font-weight: 700;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background-color: #e509145c;
+    
   }
 `;
 
@@ -69,7 +78,9 @@ const Bg = styled.div`
   height: 120px;
   background: url(${IMG_SIZE.size_200}${(props) => props.$bgUrl}) no-repeat
     center / cover;
-  border-radius: 15px;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+  
   @media screen and (max-width: 640px) {
     height: 110px;
   }
@@ -111,7 +122,9 @@ export const MovieMini = ({ movieData, titleText }) => {
                   <Numb>{index + 1}</Numb>
                   <Bg $bgUrl={data.backdrop_path} />
                 </Con>
-                <h3>{data.title}</h3>
+                <Sub>
+                  <h3>{data.title}</h3>
+                </Sub>
               </ConWrap>
             </Link>
           </SwiperSlide>
