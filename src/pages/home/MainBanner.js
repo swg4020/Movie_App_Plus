@@ -3,7 +3,9 @@ import { IMG_SIZE } from "../../constant/url";
 import { Link } from "react-router-dom";
 import { colors } from "../../components/GlobalStyled";
 import { MovieMini } from "./MovieMini";
-
+import { useEffect, useState } from "react";
+import { trending } from "../../api";
+import { CiCirclePlus } from "react-icons/ci";
 const Banner = styled.section`
   height: 100vh;
   background: url(${IMG_SIZE.origin}${(props) => props.$bgUrl}) no-repeat center /
@@ -18,7 +20,7 @@ const Banner = styled.section`
 `;
 const Title = styled.div`
   position: absolute;
-  bottom: 250px;
+  bottom: 300px;
   left: 50px;
   h3 {
     font-size: 80px;
@@ -35,16 +37,24 @@ const Title = styled.div`
   }
   a {
     p {
-      width: 150px;
-      height: 30px;
-      border-radius: 3px;
-      text-align: center;
-      background-color: ${colors.point};
-      line-height: 30px;
-      font-size: 25px;
+      width: 120px;
+      border-radius: 25px;
+      border: 2px solid #e5091459;
+      padding: 10px 0 10px 15px;
+      background-color: ${colors.pointRGB};
+      font-size: 20px;
       font-weight: 600;
+      position: relative;
+      svg {
+        font-size: 45px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-weight: 700;
+      }
     }
   }
+
   @media screen and (max-width: 640px) {
     bottom: 160px;
     left: 50px;
@@ -79,17 +89,32 @@ const BackBg = styled.div`
 
 export const MainBanner = ({ imgUrl, numData }) => {
   const data = imgUrl[numData];
+  const [trendData, setTrendData] = useState();
+  useEffect(() => {
+    (async () => {
+      try {
+        const { results: trenDing } = await trending();
+        setTrendData(trenDing);
+      } catch (error) {
+        console.log(error);
+      }
+    })();
+  }, []);
   return (
     <Banner $bgUrl={data?.backdrop_path}>
       <BackBg />
       <Title>
         <h3>{data.title}</h3>
         <p>{data.overview.slice(0, 100) + "..."}</p>
-        <Link to={`/detail/${data.id}`}>
-          <p>더 보기</p>
-        </Link>
+        <div>
+          <Link to={`/detail/${data.id}`}>
+            <p>
+              더보기 <CiCirclePlus />
+            </p>
+          </Link>
+        </div>
       </Title>
-      <MovieMini movieData={imgUrl} titleText={"추천"} />
+      <MovieMini movieData={trendData} titleText={"인기 급상승"} />
     </Banner>
   );
 };

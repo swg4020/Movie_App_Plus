@@ -33,6 +33,16 @@ const Title = styled.h3`
   }
 `;
 
+const ConWrap = styled.div`
+  h3 {
+    width: 100%;
+    font-size: 18px;
+    text-align: center;
+    margin-top: 10px;
+    font-weight: 700;
+  }
+`;
+
 const Con = styled.div`
   width: 100%;
   display: flex;
@@ -88,19 +98,21 @@ export const MovieMini = ({ movieData, titleText }) => {
     },
   };
 
-  
   return (
     <Section>
       <Title>{titleText}</Title>
 
       <Swiper {...params}>
-        {movieData.map((data, index) => (
+        {movieData?.map((data, index) => (
           <SwiperSlide key={data.id}>
             <Link to={`/detail/${data.id}`}>
-              <Con>
-                <Numb>{index + 1}</Numb>
-                <Bg $bgUrl={data.poster_path} />
-              </Con>
+              <ConWrap>
+                <Con>
+                  <Numb>{index + 1}</Numb>
+                  <Bg $bgUrl={data.backdrop_path} />
+                </Con>
+                <h3>{data.title}</h3>
+              </ConWrap>
             </Link>
           </SwiperSlide>
         ))}
@@ -108,3 +120,5 @@ export const MovieMini = ({ movieData, titleText }) => {
     </Section>
   );
 };
+
+//타이틀추가

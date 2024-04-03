@@ -3,6 +3,7 @@ import reset from "styled-reset";
 
 export const colors = {
   point: "#e50914",
+  pointRGB: "#e5091494",
 };
 
 export const GlobalPadding = {

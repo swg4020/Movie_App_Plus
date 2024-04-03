@@ -23,8 +23,13 @@ export const poPular = () =>
 export const topRated = () =>
   fatch(url("movie/top_rated"), options).then((res) => res.json());
 
+export const trending = () =>
+  fatch(url("trending/movie/day"), options).then((res) => res.json());
+
+//인기급상승
 export const upComing = () =>
   fatch(url("movie/upcoming"), options).then((res) => res.json());
+
 
 export const videosMovie = (id) => {
   const videosUrl = baseUrl + `movie/${id}/videos?language=ko-kr`;

@@ -12,24 +12,23 @@ const Container = styled.div`
     rgba(0, 0, 0, 0.7) 53%,
     rgba(0, 0, 0, 1) 100%
   );
-
 `;
 const Con = styled.div`
   width: 100%;
   text-align: center;
-  font-size: 58px;
+  font-size: 28px;
   font-weight: 700;
-  letter-spacing: 9px;
+  letter-spacing: -1px;
   margin-bottom: 20px;
   @media screen and (max-width: 640px) {
-    font-size: 48px;
+    font-size: 28px;
   }
   @media screen and (max-width: 450px) {
     font-size: 28px;
   }
 `;
 const Text = styled.div`
-  font-size: 20px;
+  font-size: 16px;
   text-align: center;
   a {
     p {
