@@ -93,15 +93,35 @@ const Genres = styled.ul`
 
 const Video = styled.button`
   all: unset;
-  background-color: ${colors.point};
-  width: 150px;
-  height: 30px;
-  border-radius: 5px;
-  margin-top: 50px;
-  text-align: center;
-  line-height: 30px;
-  font-size: 19px;
-  font-weight: 600;
+  position: relative;
+  p {
+    width: 150px;
+    border-radius: 25px;
+    border: 2px solid #e5091459;
+    padding: 10px 0 10px 15px;
+    background-color: ${colors.pointRGB};
+    font-size: 20px;
+    font-weight: 600;
+    position: relative;
+    margin-top: 30px;
+  }
+  div {
+    position: absolute;
+    top: 32.5px;
+    right: 1px;
+    border: 1px solid ${colors.pointRGB};
+    font-size: 35px;
+    padding: 5px 15px;
+    border-radius: 50%;
+    box-sizing: border-box;
+    background-color: ${colors.pointRGB};
+  }
+  &:hover {
+    div {
+      
+      background-color: ${colors.point};
+    }
+  }
 `;
 
 const Movieveideo = styled.div`
@@ -129,7 +149,7 @@ const Close = styled.button`
   padding: 10px 15px;
   border-radius: 50%;
   cursor: pointer;
-  &:hover{
+  &:hover {
     background-color: gray;
     transition: 0.5s;
   }
@@ -167,7 +187,10 @@ export const MovieCon = ({ data, moviedata }) => {
           <p>{data?.overview}</p>
           <>
             {videodata?.length ? (
-              <Video onClick={OnvideoHanedler}>예고편 보기</Video>
+              <Video onClick={OnvideoHanedler}>
+                <p>예고편</p>
+                <div>+</div>
+              </Video>
             ) : (
               ""
             )}
