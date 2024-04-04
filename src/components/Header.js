@@ -25,7 +25,7 @@ const SHeader = styled.header`
 const Logo = styled.div`
   font-size: 28px;
   font-weight: 700;
-  a{
+  a {
     color: ${colors.point};
   }
 `;
@@ -36,8 +36,8 @@ const Nav = styled.ul`
   font-weight: 700;
 
   li {
-    margin-left: 100px;
-    a{
+    margin-left: 10px;
+    a {
       color: ${colors.point};
     }
   }
@@ -79,6 +79,13 @@ export const Header = () => {
       <Nav>
         <li>
           <Link to={routes.home}>Home</Link>
+        </li>
+
+        <li>
+          <Link to={routes.login}>Login</Link>
+        </li>
+        <li>
+          <Link to={routes.signup}>SignUp</Link>
         </li>
         <li>
           <Link to={routes.search}>Search</Link>

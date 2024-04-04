@@ -11,6 +11,8 @@ export const Home = () => {
   const [topData, setTopData] = useState();
   const [upData, setUpData] = useState();
 
+  // const [genres, setGenres] = useState();
+
   const [number, setNumber] = useState(0);
   const [isLoading, setIsLoding] = useState(true);
 
@@ -21,6 +23,11 @@ export const Home = () => {
         const { results: nowPopular } = await poPular();
         const { results: nowTopRated } = await topRated();
         const { results: nowUpComing } = await upComing();
+
+        // const genres = await genre();
+        // console.log(genres);
+        // setGenres(genres);
+
 
         setNumber(Math.floor(Math.random() * 20));
         setNowData(nowResult);
@@ -35,6 +42,8 @@ export const Home = () => {
     })();
   }, []);
   console.log(nowData);
+  
+
   return (
     <>
       {isLoading ? (

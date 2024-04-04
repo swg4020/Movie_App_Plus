@@ -35,7 +35,6 @@ export const videosMovie = (id) => {
   const videosUrl = baseUrl + `movie/${id}/videos?language=ko-kr`;
   return fatch(videosUrl, options).then((res) => res.json());
 };
-//비디오 가져오기
 
 export const searchMovie = (keyword) => {
   const searchUrl = baseUrl + `search/movie?query=${keyword}&language=ko-kr`;
@@ -46,3 +45,9 @@ export const movieDetail = (id) => {
   const detailUrl = baseUrl + `movie/${id}?language=ko-kr`;
   return fatch(detailUrl, options).then((res) => res.json());
 };
+
+export const genre = () => {
+  const detailUrl = baseUrl + `genre/movie/list?language=ko-kr`;
+  return fatch(detailUrl, options).then((res) => res.json());
+};
+//장르

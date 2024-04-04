@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { colors } from "../components/GlobalStyled";
+
 
 const Container = styled.div`
   height: 100vh;
