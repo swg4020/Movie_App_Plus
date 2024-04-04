@@ -56,7 +56,7 @@ const Title = styled.div`
   }
 
   @media screen and (max-width: 640px) {
-    bottom: 160px;
+    bottom: 260px;
     left: 50px;
     h3 {
       font-size: 50px;
@@ -66,7 +66,7 @@ const Title = styled.div`
     }
   }
   @media screen and (max-width: 450px) {
-    bottom: 140px;
+    bottom: 260px;
     left: 20px;
     h3 {
       font-size: 30px;

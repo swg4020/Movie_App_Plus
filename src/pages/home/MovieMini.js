@@ -14,9 +14,11 @@ const Section = styled.section`
   padding: 50px 0 0 50px;
   @media screen and (max-width: 640px) {
     padding: ${GlobalPadding.padding_640} 0 0 ${GlobalPadding.padding_640};
+    bottom: 20px;
   }
   @media screen and (max-width: 450px) {
     padding: ${GlobalPadding.padding_450} 0 0 ${GlobalPadding.padding_450};
+    bottom: 0;
   }
 `;
 
@@ -47,8 +49,8 @@ const Sub = styled.div`
     font-weight: 700;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
-    background-color: #e509145c;
-    
+    background-color: #1d1d1d61;
+    backdrop-filter: blur(3px);
   }
 `;
 
@@ -80,7 +82,7 @@ const Bg = styled.div`
     center / cover;
   border-top-right-radius: 15px;
   border-top-left-radius: 15px;
-  
+
   @media screen and (max-width: 640px) {
     height: 110px;
   }

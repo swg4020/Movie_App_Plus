@@ -8,10 +8,4 @@
 - [x] "react-helmet-async": "^2.0.4",/ npm i react-helmet-async
 - [x] "react-icons": "^5.0.1", / npm i react-icons
 - [x] "react-spinners": "^0.13.8", / npm i react-spinners
-
-
-
-
-예고편 보기 수정하고+반응형
-
-예고편영상 디자인
+- [x] "react-player": "^2.15.1", / npm i react-player

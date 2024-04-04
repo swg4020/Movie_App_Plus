@@ -6,6 +6,7 @@ import {
   colors,
 } from "../../components/GlobalStyled";
 import { useState } from "react";
+import ReactPlayer from "react-player";
 
 const Container = styled.div`
   padding: 150px;
@@ -24,8 +25,8 @@ const Container = styled.div`
   }
 `;
 const Bg = styled.div`
-  width: 48%;
-  height: 700px;
+  width: 45%;
+  height: 800px;
   img {
     height: 100%;
     object-fit: cover;
@@ -111,14 +112,13 @@ const Video = styled.button`
     right: 1px;
     border: 1px solid ${colors.pointRGB};
     font-size: 35px;
-    padding: 5px 15px;
+    padding: 4px 15px 5px 15px;
     border-radius: 50%;
     box-sizing: border-box;
     background-color: ${colors.pointRGB};
   }
   &:hover {
     div {
-      
       background-color: ${colors.point};
     }
   }
@@ -136,9 +136,21 @@ const Movieveideo = styled.div`
   align-items: center;
   flex-wrap: wrap;
   flex-direction: column;
-  iframe {
+  div {
     width: ${VideoSize.Vwidth};
     height: ${VideoSize.Vheight};
+  }
+  @media screen and (max-width: 640px) {
+    div {
+      width: ${VideoSize.Mwidth};
+      height: ${VideoSize.Mheight};
+    }
+  }
+  @media screen and (max-width: 450px) {
+    div {
+      width: ${VideoSize.Swidth};
+      height: ${VideoSize.Sheight};
+    }
   }
 `;
 
@@ -146,25 +158,28 @@ const Close = styled.button`
   all: unset;
   margin-top: 30px;
   font-size: 35px;
-  padding: 10px 15px;
+  padding: 10px 20px 18px 18px;
   border-radius: 50%;
   cursor: pointer;
-  &:hover {
-    background-color: gray;
-    transition: 0.5s;
+  background-color: gray;
+  p {
+    margin-top: 1px;
   }
 `;
 
 export const MovieCon = ({ data, moviedata }) => {
   const videodata = moviedata;
   const [isNone, setIsNone] = useState("none");
+  const [start, setStart] = useState(false);
   const OnvideoHanedler = () => {
     setIsNone("flex");
+    setStart(true);
   };
   const ClosevideoHanedler = () => {
     setIsNone("none");
+    setStart(false);
   };
-
+  console.log(start);
   return (
     <>
       <Container>
@@ -198,15 +213,20 @@ export const MovieCon = ({ data, moviedata }) => {
         </Con>
       </Container>
       <Movieveideo $video={isNone}>
-        <iframe
-          src={`https://www.youtube.com/embed/${videodata[0]?.key}`}
-          title={`${videodata[0]?.name}`}
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerPolicy="strict-origin-when-cross-origin"
-          allowFullScreen
-        ></iframe>
+        <div>
+          <ReactPlayer
+            url={`https://www.youtube.com/embed/${videodata[0]?.key}`}
+            playing={start}
+            muted={true}
+            controls={true}
+            width={"100%"}
+            height={"100%"}
+          />
+        </div>
         {/* 카멜로 수정  이어지는 부분 수정*/}
-        <Close onClick={ClosevideoHanedler}>✖</Close>
+        <Close onClick={ClosevideoHanedler}>
+          <p>✖</p>
+        </Close>
       </Movieveideo>
     </>
   );
