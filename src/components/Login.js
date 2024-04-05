@@ -15,6 +15,12 @@ const Container = styled.div`
   padding: 150px;
   display: flex;
   justify-content: center;
+  @media screen and (max-width: 640px) {
+    padding: 150px 100px;
+  }
+  @media screen and (max-width: 450px) {
+    padding: 150px 50px;
+  }
 `;
 
 const MForm = styled.form`
@@ -44,7 +50,13 @@ const Title = styled.h2`
   font-size: 70px;
   font-weight: 700;
   margin-bottom: 30px;
-  color: ${colors.point};
+  color: #1d1d1d;
+  @media screen and (max-width: 640px) {
+    font-size: 60px;
+  }
+  @media screen and (max-width: 450px) {
+    font-size: 50px;
+  }
 `;
 
 const ErrorMessage = styled.div`
@@ -55,7 +67,6 @@ const ErrorMessage = styled.div`
   width: 100%;
   font-family: 700;
 `;
-
 
 export const Login = () => {
   const {
@@ -90,7 +101,7 @@ export const Login = () => {
   return (
     <Container>
       <MForm onSubmit={handleSubmit(LoginSubmit)}>
-        <Title>Movie</Title>
+        <Title>로그인</Title>
         <input
           {...register("userid", {
             required: "아이디를 적어주세요",
@@ -112,7 +123,7 @@ export const Login = () => {
         />
         <ErrorMessage>{errors?.password?.message}</ErrorMessage>
         <Button text={"로그인"} />
-        <ButtonL text={"회원가입"} link={"/signup"}/>
+        <ButtonL text={"회원가입"} link={"/signup"} />
       </MForm>
     </Container>
   );

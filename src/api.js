@@ -30,7 +30,6 @@ export const trending = () =>
 export const upComing = () =>
   fatch(url("movie/upcoming"), options).then((res) => res.json());
 
-
 export const videosMovie = (id) => {
   const videosUrl = baseUrl + `movie/${id}/videos?language=ko-kr`;
   return fatch(videosUrl, options).then((res) => res.json());
@@ -51,3 +50,9 @@ export const genre = () => {
   return fatch(detailUrl, options).then((res) => res.json());
 };
 //장르
+
+export const genres = (id) => {
+  const genresData = `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=ko-KR&page=1&sort_by=popularity.desc&with_genres=${id}
+  `;
+  return fatch(genresData, options).then((res) => res.json());
+};

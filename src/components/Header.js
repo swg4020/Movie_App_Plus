@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 import { routes } from "../routes";
 import styled from "styled-components";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { GlobalPadding, colors } from "./GlobalStyled";
+import { GoSearch } from "react-icons/go";
+import { genre } from "../api";
 
 const SHeader = styled.header`
   padding: 20px 50px;
@@ -36,17 +38,33 @@ const Nav = styled.ul`
   font-weight: 700;
 
   li {
-    margin-left: 10px;
+    margin-left: 20px;
     a {
       color: ${colors.point};
+    }
+    svg {
+      font-size: 30px;
+    }
+  }
+  @media screen and (max-width: 640px) {
+    li {
+      margin-left: 20px;
+      font-size: 16px;
     }
   }
   @media screen and (max-width: 450px) {
     li {
-      margin-left: 30px;
+      margin-left: 10px;
       font-size: 16px;
     }
   }
+`;
+
+const NavG = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999;
 `;
 
 export const Header = () => {
@@ -71,6 +89,20 @@ export const Header = () => {
     return window.addEventListener("scroll", handlerScroll);
   });
 
+  const [genreData, setGenreData] = useState();
+  useEffect(() => {
+    (async () => {
+      try {
+        const { genres: genredata } = await genre();
+        setGenreData(genredata);
+        console.log(genredata);
+      } catch (error) {
+        console.log(error);
+        alert("에러 발생");
+      }
+    })();
+  }, []);
+
   return (
     <SHeader ref={headerRef}>
       <Logo>
@@ -78,18 +110,25 @@ export const Header = () => {
       </Logo>
       <Nav>
         <li>
-          <Link to={routes.home}>Home</Link>
-        </li>
-
-        <li>
-          <Link to={routes.login}>Login</Link>
+          <Link to={routes.search}>
+            <GoSearch />
+          </Link>
         </li>
         <li>
-          <Link to={routes.signup}>SignUp</Link>
+          <Link to={routes.login}>로그인</Link>
         </li>
         <li>
-          <Link to={routes.search}>Search</Link>
+          <Link to={routes.signup}>회원가입</Link>
         </li>
+        <NavG>
+          
+          {genreData?.map((data) => (
+          <Link to={`/genres/${data.id}`}>
+            <div>{data.name}</div>
+            </Link>
+          ))}
+          
+        </NavG>
       </Nav>
     </SHeader>
   );

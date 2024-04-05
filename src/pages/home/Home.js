@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { nowPlaying, poPular, topRated, upComing } from "../../api";
+import { genres, nowPlaying, poPular, topRated, upComing } from "../../api";
 import { MainBanner } from "./MainBanner";
 import { Movies } from "./Movies";
 import { Loading } from "../../components/Loading";
@@ -24,10 +24,11 @@ export const Home = () => {
         const { results: nowTopRated } = await topRated();
         const { results: nowUpComing } = await upComing();
 
+        const r = await genres();
         // const genres = await genre();
         // console.log(genres);
         // setGenres(genres);
-
+        console.log(r);
 
         setNumber(Math.floor(Math.random() * 20));
         setNowData(nowResult);
@@ -42,7 +43,6 @@ export const Home = () => {
     })();
   }, []);
   console.log(nowData);
-  
 
   return (
     <>

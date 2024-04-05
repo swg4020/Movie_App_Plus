@@ -82,14 +82,14 @@ const Con = styled.div`
   }
 `;
 const Genres = styled.ul`
-  
-  margin-left: 26px;
+
   li {
     width: 100px;
     padding: 3px;
     margin-bottom: 10px;
     text-align: center;
     background-color: ${colors.pointRGB};
+    border-radius: 5px;
   }
   li:last-child {
     margin-bottom: 50px;

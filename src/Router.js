@@ -8,6 +8,7 @@ import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 import { Login } from "./components/Login";
 import { Signup } from "./components/Signup";
+import { Genres } from "./pages/List/Genres";
 
 function Router() {
   return (
@@ -19,6 +20,7 @@ function Router() {
         <Route path={routes.search} element={<Search />} />
         <Route path={routes.login} element={<Login />} />
         <Route path={routes.signup} element={<Signup />} />
+        <Route path="/genres/:id" element={<Genres />} />
         <Route path="/*" element={<Erorr404 />} />
       </Routes>
       <Footer />
