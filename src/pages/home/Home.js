@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import { genres, nowPlaying, poPular, topRated, upComing } from "../../api";
+import { nowPlaying, poPular, topRated, upComing } from "../../api";
 import { MainBanner } from "./MainBanner";
 import { Movies } from "./Movies";
 import { Loading } from "../../components/Loading";
 import { PageTitle } from "../../components/PageTitle";
+import { GenresList } from "./GenresList";
 
 export const Home = () => {
   const [nowData, setNowData] = useState();
@@ -11,7 +12,6 @@ export const Home = () => {
   const [topData, setTopData] = useState();
   const [upData, setUpData] = useState();
 
-  // const [genres, setGenres] = useState();
 
   const [number, setNumber] = useState(0);
   const [isLoading, setIsLoding] = useState(true);
@@ -24,11 +24,6 @@ export const Home = () => {
         const { results: nowTopRated } = await topRated();
         const { results: nowUpComing } = await upComing();
 
-        const r = await genres();
-        // const genres = await genre();
-        // console.log(genres);
-        // setGenres(genres);
-        console.log(r);
 
         setNumber(Math.floor(Math.random() * 20));
         setNowData(nowResult);
@@ -55,6 +50,7 @@ export const Home = () => {
               <PageTitle title={"Home"} />
               <MainBanner imgUrl={nowData} numData={number} />
 
+              <GenresList />
               <Movies movieData={nowData} titleText={"최신 영화"} />
               <Movies movieData={popData} titleText={"인기영화"} />
               <Movies movieData={topData} titleText={"평점이 높은 영화"} />

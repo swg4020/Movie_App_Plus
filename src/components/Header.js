@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import { routes } from "../routes";
 import styled from "styled-components";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { GlobalPadding, colors } from "./GlobalStyled";
 import { GoSearch } from "react-icons/go";
-import { genre } from "../api";
+
 
 const SHeader = styled.header`
   padding: 20px 50px;
@@ -60,12 +60,7 @@ const Nav = styled.ul`
   }
 `;
 
-const NavG = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 9999;
-`;
+
 
 export const Header = () => {
   const headerRef = useRef();
@@ -89,19 +84,7 @@ export const Header = () => {
     return window.addEventListener("scroll", handlerScroll);
   });
 
-  const [genreData, setGenreData] = useState();
-  useEffect(() => {
-    (async () => {
-      try {
-        const { genres: genredata } = await genre();
-        setGenreData(genredata);
-        console.log(genredata);
-      } catch (error) {
-        console.log(error);
-        alert("에러 발생");
-      }
-    })();
-  }, []);
+  
 
   return (
     <SHeader ref={headerRef}>
@@ -120,15 +103,7 @@ export const Header = () => {
         <li>
           <Link to={routes.signup}>회원가입</Link>
         </li>
-        <NavG>
-          
-          {genreData?.map((data) => (
-          <Link to={`/genres/${data.id}`}>
-            <div>{data.name}</div>
-            </Link>
-          ))}
-          
-        </NavG>
+        
       </Nav>
     </SHeader>
   );

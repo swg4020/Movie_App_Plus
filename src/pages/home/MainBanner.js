@@ -56,23 +56,37 @@ const Title = styled.div`
   }
 
   @media screen and (max-width: 640px) {
-    bottom: 260px;
+    bottom: 220px;
     left: 50px;
     h3 {
       font-size: 50px;
     }
     p {
       max-width: 400px;
+      font-size: 18px;
     }
   }
   @media screen and (max-width: 450px) {
-    bottom: 260px;
+    bottom: 180px;
     left: 20px;
     h3 {
       font-size: 30px;
     }
     p {
       max-width: 300px;
+      font-size: 16px;
+    }
+    a {
+      p {
+        width: 100px;
+        border-radius: 25px;
+        padding: 5px 0 5px 10px;
+        font-size: 18px;
+
+        svg {
+          font-size: 35px;
+        }
+      }
     }
   }
 `;
