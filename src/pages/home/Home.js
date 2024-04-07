@@ -6,6 +6,7 @@ import { Loading } from "../../components/Loading";
 import { PageTitle } from "../../components/PageTitle";
 import { GenresList } from "./GenresList";
 
+
 export const Home = () => {
   const [nowData, setNowData] = useState();
   const [popData, setPopData] = useState();
@@ -37,7 +38,7 @@ export const Home = () => {
       }
     })();
   }, []);
-  console.log(nowData);
+
 
   return (
     <>
@@ -49,6 +50,7 @@ export const Home = () => {
             <>
               <PageTitle title={"Home"} />
               <MainBanner imgUrl={nowData} numData={number} />
+
 
               <GenresList />
               <Movies movieData={nowData} titleText={"최신 영화"} />

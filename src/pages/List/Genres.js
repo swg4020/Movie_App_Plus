@@ -49,6 +49,10 @@ const Bg = styled.div`
     height: 240px;
   }
 `;
+const Box = styled.div`
+  height: 100vh;
+  display: ${(props) => props.$noNe};
+`;
 
 export const Genres = () => {
   const { id } = useParams();
@@ -61,35 +65,38 @@ export const Genres = () => {
     setIsLoading(true);
     (async () => {
       try {
-        const genresData = genres(id);
-        const { genre: genredata } = await genre();
-        setData(genresData);
-        setGenreData(genredata);
+        const { results: gSData } = await genres(id);
+        const { genres: gdata } = await genre();
+        setData(gSData);
+        setGenreData(gdata);
         setIsLoading(false);
       } catch (error) {
         console.log(error);
       }
     })();
   }, [id]);
-  const Gdata = genreData && genreData.filter((data) => console.log(data.id === num ? data.name : ""));
+  const Gdata =
+    genreData &&
+    genreData.filter((data) => console.log(data.id === num ? data.name : "no"));
 
-  console.log(Gdata);
+  console.log(data);
   return (
     <Container>
-      {Gdata && (
+      {data ? <Box $noNe={"none"}></Box> : <Box $noNe={"block"}></Box>}
+      {data && (
         <ConWrap>
           {isLoadig ? (
             <Loading />
           ) : (
             <>
-              {Gdata.map((data) => (
-                <Con key={data?.results?.id}>
+              {data.map((data) => (
+                <Con key={data?.id}>
                   <Link to={`/detail/${data.id}`}>
                     <Bg>
-                      {data?.results?.poster_path ? (
+                      {data?.poster_path ? (
                         <img
-                          src={`${IMG_SIZE.size_200}${data?.results?.poster_path}`}
-                          alt={data?.results?.title}
+                          src={`${IMG_SIZE.size_200}${data?.poster_path}`}
+                          alt={data?.title}
                         />
                       ) : (
                         <img src="" alt="이미지 없음" />
