@@ -16,6 +16,8 @@ js, react, node.js, git, github
 
 ### 프로젝트 기획 
 
+![기획](https://github.com/swg4020/Movie_App_Plus/assets/162289678/66c9c890-e3c0-4781-ba8f-10ce4f13812c)
+
 03-25 
 - 기획 정리
 - 계획서 작성
