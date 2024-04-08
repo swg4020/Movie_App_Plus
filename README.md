@@ -5,11 +5,14 @@
 ### 이미지 
 ![프로젝트 이미지](https://github.com/swg4020/Movie_App_Plus/assets/162289678/135a0d6b-4dc2-4020-a670-9bd6096e3771)
 
+---
 ### 개발 기간
  2024.03.25 ~ 2024.04.08
-
+---
 ### stack
 js, react, node.js, git, github
+
+### 프로젝트 소개
 
 ### 프로젝트 목적 (추가수정)
 간단한 검색과 리뷰, 평점, 검색, 예고편 등을 보기위해 만듬
@@ -62,7 +65,6 @@ js, react, node.js, git, github
 - 코드 정리
 - 배포 및 마무리.
 
-### 프로젝트 소개 :
 
 ### 프로젝트 URL  https://swg4020.github.io/Movie_App_Plus/ 
 
