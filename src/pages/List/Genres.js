@@ -78,7 +78,6 @@ export const Genres = () => {
   const Gdata =
     genreData &&
     genreData.filter((data) => console.log(data.id === num ? data.name : "no"));
-
   console.log(data);
   return (
     <Container>

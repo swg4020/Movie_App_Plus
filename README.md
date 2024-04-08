@@ -10,4 +10,3 @@
 - [x] "react-spinners": "^0.13.8", / npm i react-spinners
 - [x] "react-player": "^2.15.1", / npm i react-player
 
-장르 데이터 불러오기
