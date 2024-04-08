@@ -1,7 +1,6 @@
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { colors } from "./GlobalStyled";
 import { Button } from "./Button";
 import { ButtonL } from "./ButtonL";
 
@@ -118,7 +117,7 @@ export const Login = () => {
               message: "비밀번호는 4자리 이상",
             },
           })}
-          type="text"
+          type="password"
           placeholder="패스워드"
         />
         <ErrorMessage>{errors?.password?.message}</ErrorMessage>

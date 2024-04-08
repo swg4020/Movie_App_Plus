@@ -78,9 +78,10 @@ export const Genres = () => {
   const Gdata =
     genreData &&
     genreData.filter((data) => console.log(data.id === num ? data.name : "no"));
-  console.log(data);
+  console.log(Gdata);
   return (
     <Container>
+      <h3>{Gdata}</h3>
       {data ? <Box $noNe={"none"}></Box> : <Box $noNe={"block"}></Box>}
       {data && (
         <ConWrap>
@@ -88,6 +89,7 @@ export const Genres = () => {
             <Loading />
           ) : (
             <>
+              <h3>{Gdata}</h3>
               {data.map((data) => (
                 <Con key={data?.id}>
                   <Link to={`/detail/${data.id}`}>
