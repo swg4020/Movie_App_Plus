@@ -5,7 +5,7 @@ import { colors } from "../../components/GlobalStyled";
 import { MovieMini } from "./MovieMini";
 import { useEffect, useState } from "react";
 import { trending } from "../../api";
-import { CiCirclePlus } from "react-icons/ci";
+
 const Banner = styled.section`
   height: 100vh;
   background: url(${IMG_SIZE.origin}${(props) => props.$bgUrl}) no-repeat center /
@@ -37,26 +37,32 @@ const Title = styled.div`
   }
   a {
     p {
-      width: 120px;
-      border-radius: 25px;
-      border: 2px solid #e5091459;
-      padding: 10px 0 10px 15px;
-      background-color: ${colors.pointRGB};
-      font-size: 20px;
-      font-weight: 600;
-      position: relative;
-      svg {
-        font-size: 45px;
-        position: absolute;
-        top: 0;
-        right: 0;
-        font-weight: 700;
-      }
-    }
+    width: 130px;
+    border-radius: 25px;
+    color: white;
+    border: 2px solid #e5091459;
+    padding: 10px 0 10px 15px;
+    background-color: ${colors.pointRGB};
+    font-size: 20px;
+    font-weight: 600;
+    position: relative;
+    margin-top: 30px;
   }
+  div {
+    position: absolute;
+    bottom: 10px;
+    left: 78px;
+    border: 1px solid ${colors.pointRGB};
+    font-size: 35px;
+    padding: 4px 15px 9px 15px;
+    border-radius: 50%;
+    box-sizing: border-box;
+    background-color: ${colors.pointRGB};
+  }
+}
 
   @media screen and (max-width: 640px) {
-    bottom: 220px;
+    bottom: 225px;
     left: 50px;
     h3 {
       font-size: 50px;
@@ -65,9 +71,22 @@ const Title = styled.div`
       max-width: 400px;
       font-size: 18px;
     }
+    a{
+      p {
+        width: 120px;
+        padding: 5px 0 5px 15px;
+        font-size: 18px;
+        margin-top: 30px;
+      }
+      div {
+        left: 78px;
+        font-size: 30px;
+        padding: 2px 12px 6px 12px;
+      }
+    }
   }
   @media screen and (max-width: 450px) {
-    bottom: 180px;
+    bottom: 195px;
     left: 20px;
     h3 {
       font-size: 30px;
@@ -78,15 +97,16 @@ const Title = styled.div`
     }
     a {
       p {
-        width: 100px;
-        border-radius: 25px;
-        padding: 5px 0 5px 10px;
-        font-size: 18px;
-
-        svg {
-          font-size: 35px;
-        }
-      }
+    width: 120px;
+    padding: 5px 0 5px 15px;
+    font-size: 18px;
+    margin-top: 30px;
+  }
+    div {
+      left: 78px;
+      font-size: 30px;
+    padding: 2px 12px 6px 12px;
+  }
     }
   }
 `;
@@ -122,9 +142,8 @@ export const MainBanner = ({ imgUrl, numData }) => {
         <p>{data.overview.slice(0, 100) + "..."}</p>
         <div>
           <Link to={`/detail/${data.id}`}>
-            <p>
-              더보기 <CiCirclePlus />
-            </p>
+            <p>더보기</p>
+            <div>+</div>
           </Link>
         </div>
       </Title>

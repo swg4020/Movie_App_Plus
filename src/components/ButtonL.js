@@ -12,9 +12,9 @@ a{
 const SButton = styled.button`
   all: unset;
   width: 100%;
-  height: 50px;
+  height: 40px;
   text-align: center;
-  font-size: 18;
+  font-size: 18px;
   background-color: ${colors.point};
   border-radius: 10px;
   margin-top: 20px;

@@ -7,7 +7,7 @@ const SButton = styled.button`
   width: 100%;
   height: 50px;
   text-align: center;
-  font-size: 18;
+  font-size: 18px;
   background-color: ${colors.point};
   border-radius: 10px;
   margin-top: 20px;

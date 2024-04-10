@@ -8,6 +8,7 @@ import { Loading } from "../../components/Loading";
 import { PageTitle } from "../../components/PageTitle";
 import { GlobalPadding } from "../../components/GlobalStyled";
 import { CiSearch } from "react-icons/ci";
+import { ScrollTop } from "../../components/ScrollTop";
 
 const Container = styled.section`
   padding: 150px;
@@ -167,7 +168,7 @@ export const Search = () => {
                           alt={data.title}
                         />
                       ) : (
-                        <img src="" alt="이미지 없음" />
+                        <img src="https://img.freepik.com/premium-vector/default-image-icon-vector-missing-picture-page-for-website-design-or-mobile-app-no-photo-available_87543-11093.jpg" alt="이미지 없음" />
                       )}
                     </Bg>
                   </Link>
@@ -177,6 +178,7 @@ export const Search = () => {
           )}
         </ConWrap>
       )}
+    <ScrollTop />
     </Container>
   );
 };

@@ -13,11 +13,11 @@ const Section = styled.section`
   bottom: 40px;
   padding: 50px 0 0 50px;
   @media screen and (max-width: 640px) {
-    padding: ${GlobalPadding.padding_640} 0 0 ${GlobalPadding.padding_640};
-    bottom: 20px;
+    padding: 0 0 0 ${GlobalPadding.padding_640};
+    bottom: 10px;
   }
   @media screen and (max-width: 450px) {
-    padding: ${GlobalPadding.padding_450} 0 0 ${GlobalPadding.padding_450};
+    padding: 0 0 0 ${GlobalPadding.padding_450};
     bottom: 0;
   }
 `;

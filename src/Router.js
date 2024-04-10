@@ -9,10 +9,12 @@ import { Footer } from "./components/Footer";
 import { Login } from "./components/Login";
 import { Signup } from "./components/Signup";
 import { Genres } from "./pages/List/Genres";
+import PageTop from "./components/PageTop";
 
 function Router() {
   return (
     <HashRouter>
+      <PageTop />
       <Header />
       <Routes>
         <Route path={routes.home} element={<Home />} />

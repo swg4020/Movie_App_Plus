@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { Loading } from "../../components/Loading";
 import { MovieCon } from "./MovieCon";
 import { PageTitle } from "../../components/PageTitle";
-
+import { ScrollTop } from "../../components/ScrollTop";
 
 export const Detail = () => {
   const { id } = useParams();
@@ -27,7 +27,6 @@ export const Detail = () => {
     })();
   }, [id]);
 
-
   return (
     <>
       {isLoadig ? (
@@ -38,6 +37,7 @@ export const Detail = () => {
             <>
               <PageTitle title={"Detail"} />
               <MovieCon data={data} moviedata={videoData} />
+              <ScrollTop />
             </>
           )}
         </>

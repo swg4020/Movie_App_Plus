@@ -81,18 +81,36 @@ const Con = styled.div`
     }
   }
 `;
-const Genres = styled.ul`
+const Genres = styled.div`
+display: flex;
+flex-wrap: wrap;
+align-items: center;
 
-  li {
-    width: 100px;
-    padding: 3px;
+  div {
+    width: 120px;
+    padding: 6px;
     margin-bottom: 10px;
     text-align: center;
     background-color: ${colors.pointRGB};
     border-radius: 5px;
+    font-size: 18px;
+    margin-right: 10px;
+    box-sizing: border-box;
   }
   li:last-child {
     margin-bottom: 50px;
+  }
+  @media screen and (max-width: 640px) {
+    div{
+      font-size: 16px;
+      width: 100px;
+    }
+  }
+  @media screen and (max-width: 450px) {
+    div{
+      font-size: 16px;
+      width: 100px;
+    }
   }
 `;
 
@@ -102,6 +120,7 @@ const Video = styled.button`
   p {
     width: 150px;
     border-radius: 25px;
+    color: white;
     border: 2px solid #e5091459;
     padding: 10px 0 10px 15px;
     background-color: ${colors.pointRGB};
@@ -112,19 +131,40 @@ const Video = styled.button`
   }
   div {
     position: absolute;
-    top: 32.5px;
+    top: 31px;
     right: 1px;
     border: 1px solid ${colors.pointRGB};
     font-size: 35px;
-    padding: 4px 15px 5px 15px;
+    padding: 4px 15px 9px 15px;
     border-radius: 50%;
     box-sizing: border-box;
     background-color: ${colors.pointRGB};
   }
-  &:hover {
+  @media screen and (max-width: 640px) {
+    p {
+    width: 130px;
+    padding: 5px 0 5px 15px;
+    font-size: 18px;
+    margin-top: 30px;
+  }
     div {
-      background-color: ${colors.point};
-    }
+    top: 31px;
+    font-size: 30px;
+    padding: 2px 12px 6px 12px;
+  }
+  }
+  @media screen and (max-width: 450px) {
+    p {
+    width: 130px;
+    padding: 5px 0 5px 15px;
+    font-size: 18px;
+    margin-top: 30px;
+  }
+    div {
+    top: 31px;
+    font-size: 30px;
+    padding: 2px 12px 6px 12px;
+  }
   }
 `;
 
@@ -200,7 +240,7 @@ export const MovieCon = ({ data, moviedata }) => {
           <div className="info">{data?.release_date}</div>
           <Genres className="info">
             {data?.genres?.map((genre) => (
-              <li key={genre.id}>{genre.name}</li>
+              <div key={genre.id}>{genre.name}</div>
             ))}
           </Genres>
           <p>{data?.overview}</p>

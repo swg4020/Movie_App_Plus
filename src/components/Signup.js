@@ -1,18 +1,18 @@
 import { useForm } from "react-hook-form";
 import { ButtonL } from "./ButtonL";
 import { Button } from "./Button";
-import { colors } from "./GlobalStyled";
 import styled from "styled-components";
+import { GlobalPadding } from "./GlobalStyled";
 
 const Container = styled.div`
   padding: 150px;
   display: flex;
   justify-content: center;
   @media screen and (max-width: 640px) {
-    padding: 150px 100px;
+    padding: 150px ${GlobalPadding.padding_640};
   }
   @media screen and (max-width: 450px) {
-    padding: 150px 50px;
+    padding: 100px ${GlobalPadding.padding_450};
   }
 `;
 
@@ -37,6 +37,13 @@ const MForm = styled.form`
     padding-left: 15px;
     margin-top: 10px;
     color: black;
+  }
+  @media screen and (max-width: 640px) {
+    padding: 100px 40px;
+  }
+  @media screen and (max-width: 450px) {
+    padding: 0 20px;
+    height: 600px;
   }
 `;
 const Title = styled.h2`

@@ -50,12 +50,18 @@ const Nav = styled.ul`
     li {
       margin-left: 20px;
       font-size: 16px;
+      svg{
+        font-size: 25px;
+      }
     }
   }
   @media screen and (max-width: 450px) {
     li {
       margin-left: 10px;
       font-size: 16px;
+      svg{
+        font-size: 20px;
+      }
     }
   }
 `;

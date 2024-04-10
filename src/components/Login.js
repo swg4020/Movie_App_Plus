@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { Button } from "./Button";
 import { ButtonL } from "./ButtonL";
+import { GlobalPadding } from "./GlobalStyled";
 
 const user = {
   id: 0,
@@ -15,10 +16,10 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   @media screen and (max-width: 640px) {
-    padding: 150px 100px;
+    padding: 150px ${GlobalPadding.padding_640};
   }
   @media screen and (max-width: 450px) {
-    padding: 150px 50px;
+    padding: 100px ${GlobalPadding.padding_450};
   }
 `;
 
@@ -44,6 +45,13 @@ const MForm = styled.form`
     margin-top: 10px;
     color: black;
   }
+  @media screen and (max-width: 640px) {
+    padding: 100px 40px;
+  }
+  @media screen and (max-width: 450px) {
+    padding: 100px 20px;
+    height: 500px;
+  }
 `;
 const Title = styled.h2`
   font-size: 70px;
@@ -54,7 +62,7 @@ const Title = styled.h2`
     font-size: 60px;
   }
   @media screen and (max-width: 450px) {
-    font-size: 50px;
+    font-size: 45px;
   }
 `;
 

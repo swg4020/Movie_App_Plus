@@ -5,6 +5,7 @@ import { Loading } from "../../components/Loading";
 import { GlobalPadding } from "../../components/GlobalStyled";
 import styled from "styled-components";
 import { IMG_SIZE } from "../../constant/url";
+import { ScrollTop } from "../../components/ScrollTop";
 
 const Container = styled.section`
   padding: 150px;
@@ -75,13 +76,14 @@ export const Genres = () => {
       }
     })();
   }, [id]);
+
   const Gdata =
     genreData &&
     genreData.filter((data) => console.log(data.id === num ? data.name : "no"));
-  console.log(Gdata);
+  console.log(genreData);
   return (
     <Container>
-      <h3>{Gdata}</h3>
+      <h3>{}</h3>
       {data ? <Box $noNe={"none"}></Box> : <Box $noNe={"block"}></Box>}
       {data && (
         <ConWrap>
@@ -110,6 +112,7 @@ export const Genres = () => {
           )}
         </ConWrap>
       )}
+      <ScrollTop />
     </Container>
   );
 };
