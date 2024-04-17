@@ -4,7 +4,7 @@
 
 ### 이미지
 
-![프로젝트 이미지](https://github.com/swg4020/Movie_App_Plus/assets/162289678/135a0d6b-4dc2-4020-a670-9bd6096e3771)
+![3](https://github.com/swg4020/Movie_App_Plus/assets/162289678/008b0b53-ce73-4f68-b276-8149fd23d0a8)
 
 ---
 
