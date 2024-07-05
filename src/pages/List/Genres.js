@@ -54,7 +54,17 @@ const Box = styled.div`
   height: 100vh;
   display: ${(props) => props.$noNe};
 `;
-
+const Title = styled.h3`
+ font-size: 55px;
+ font-weight: 600;
+ margin-bottom: 20px;
+ @media screen and (max-width: 640px) {
+  font-size: 38px;
+  }
+  @media screen and (max-width: 450px) {
+    font-size: 33px;
+  }
+`;
 export const Genres = () => {
   const { id } = useParams();
   const [data, setData] = useState();
@@ -79,11 +89,12 @@ export const Genres = () => {
 
   const Gdata =
     genreData &&
-    genreData.filter((data) => console.log(data.id === num ? data.name : "no"));
-  console.log(genreData);
+    genreData.filter((data) => data.id !== num ? "" : data.name);
+  const GGdata = Gdata && Gdata[0].name;
+  console.log(GGdata);
   return (
     <Container>
-      <h3>{}</h3>
+      <Title>{GGdata}</Title>
       {data ? <Box $noNe={"none"}></Box> : <Box $noNe={"block"}></Box>}
       {data && (
         <ConWrap>
@@ -91,7 +102,6 @@ export const Genres = () => {
             <Loading />
           ) : (
             <>
-              <h3>{Gdata}</h3>
               {data.map((data) => (
                 <Con key={data?.id}>
                   <Link to={`/detail/${data.id}`}>

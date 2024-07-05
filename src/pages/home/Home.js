@@ -56,8 +56,8 @@ export const Home = () => {
 
               <GenresList />
               <Movies movieData={nowData} titleText={"최신 영화"} />
-              <Movies movieData={popData} titleText={"인기영화"} />
               <Movies movieData={topData} titleText={"평점이 높은 영화"} />
+              <Movies movieData={popData} titleText={"인기영화"} />
               <Movies movieData={upData} titleText={"개봉 예정 영화"} />
               <ScrollTop />
             </>
